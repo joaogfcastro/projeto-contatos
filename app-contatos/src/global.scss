@@ -1,37 +1,129 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
+/* Importações básicas do Ionic */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
-
-/* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* --- ESTILOS GLOBAIS MODERNOS --- */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Fundo Geral da Aplicação */
+ion-content {
+  --background: radial-gradient(circle at top left, #1e293b, #0f172a);
+  --color: #f8fafc;
+}
+
+/* Toolbar (Cabeçalho) */
+ion-toolbar {
+  --background: rgba(15, 23, 42, 0.9);
+  --color: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --backdrop-filter: blur(10px);
+}
+
+ion-title {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+/* Cards (Cartões) */
+.custom-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #38bdf8; /* Azul claro */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Inputs e Itens de Formulário */
+ion-item {
+  --background: rgba(255, 255, 255, 0.03);
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --border-color: transparent;
+  --highlight-color-focused: #38bdf8;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+ion-label {
+  font-weight: 500;
+  color: #94a3b8 !important; /* Cinza azulado */
+}
+
+ion-input {
+  --color: #fff;
+  font-weight: 600;
+}
+
+/* Botões */
+ion-button.primary-btn {
+  --background: linear-gradient(135deg, #3b82f6, #2563eb);
+  --border-radius: 12px;
+  --box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  font-weight: 700;
+  height: 50px;
+  margin-top: 20px;
+  letter-spacing: 0.03em;
+}
+
+ion-button.secondary-btn {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: #fff;
+  --border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Lista de Itens */
+.list-container {
+  background: transparent;
+  padding: 0;
+}
+
+.list-item {
+  --background: rgba(30, 41, 59, 0.6);
+  --border-radius: 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.list-item h3 {
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.list-item p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Botão de Perigo (Excluir) */
+ion-button.danger-btn {
+  --background: rgba(220, 38, 38, 0.2); /* Fundo vermelho transparente */
+  --color: #f87171;                      /* Texto vermelho claro */
+  --border-radius: 12px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: rgba(220, 38, 38, 0.5);
+  font-weight: 600;
+  margin-top: 12px;
+}
