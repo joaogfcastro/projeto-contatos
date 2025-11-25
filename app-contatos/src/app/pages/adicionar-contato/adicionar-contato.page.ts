@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'; // ActivatedRoute para pegar ID
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonItem,
-  IonLabel, IonInput, IonButton, IonIcon, IonButtons
+  IonLabel, IonInput, IonButton, IonIcon,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { list, save, trash } from 'ionicons/icons';
@@ -17,10 +17,10 @@ import { FirebaseService, Contato } from 'src/app/services/firebase';
   styleUrls: ['./adicionar-contato.page.scss'],
   standalone: true,
   imports: [
-    CommonModule, FormsModule, RouterModule,
-    IonContent, IonHeader, IonTitle, IonToolbar, IonItem,
-    IonLabel, IonInput, IonButton, IonIcon, IonButtons
-  ],
+  CommonModule, FormsModule, RouterModule,
+  IonContent, IonHeader, IonTitle, IonToolbar, IonItem,
+  IonLabel, IonInput, IonButton, IonIcon
+],
 })
 export class AdicionarContatoPage implements OnInit {
   contato: Contato = {
