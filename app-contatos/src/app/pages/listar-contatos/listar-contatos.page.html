@@ -1,7 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Meus Contatos</ion-title>
-    <!-- Botão que leva para a página Adicionar -->
     <ion-button slot="end" class="secondary-btn" routerLink="/adicionar-contato" routerDirection="forward">
       <ion-icon name="add-circle" slot="start"></ion-icon>
       Novo
@@ -11,14 +10,41 @@
 
 <ion-content class="ion-padding">
 
-  <!-- Seção da API -->
+  <!-- ============================== -->
+  <!-- LISTA 1: DADOS DA API EXTERNA  -->
+  <!-- ============================== -->
   <div class="custom-card">
     <h2 class="card-title">
       <ion-icon name="cloud"></ion-icon>
-      Usuários da API
+      API (JSONPlaceholder)
     </h2>
-        <ion-list class="list-container">
-      <!-- Agora usamos properties binding [routerLink] para passar o ID dinamicamente -->
+
+    <ion-list class="list-container">
+      <!-- ATENÇÃO AQUI: A variável deve ser 'usuariosApi' -->
+      <ion-item *ngFor="let usuario of usuariosApi" class="list-item" lines="none">
+        <ion-label>
+          <h3>{{ usuario.name }}</h3>
+          <p>{{ usuario.email }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- ============================== -->
+  <!-- LISTA 2: DADOS DO FIREBASE     -->
+  <!-- ============================== -->
+  <div class="custom-card">
+    <h2 class="card-title">
+      <ion-icon name="people"></ion-icon>
+      Meus Contatos (Firebase)
+    </h2>
+
+    <p *ngIf="contatosFirebase.length === 0" style="color: #94a3b8; padding: 10px;">
+      Nenhum contato cadastrado.
+    </p>
+
+    <ion-list class="list-container">
+      <!-- ATENÇÃO AQUI: A variável deve ser 'contatosFirebase' -->
       <ion-item
         *ngFor="let contato of contatosFirebase"
         class="list-item"
@@ -31,29 +57,6 @@
           <p>{{ contato.email }}</p>
         </ion-label>
         <ion-icon name="create-outline" slot="end" style="color: #64748b"></ion-icon>
-      </ion-item>
-    </ion-list>
-
-  </div>
-
-  <!-- Seção do Firebase -->
-  <div class="custom-card">
-    <h2 class="card-title">
-      <ion-icon name="people"></ion-icon>
-      Firebase (Firestore)
-    </h2>
-
-    <!-- Mensagem se estiver vazio -->
-    <p *ngIf="contatosFirebase.length === 0" style="color: #94a3b8; padding-left: 5px;">
-      Nenhum contato cadastrado ainda.
-    </p>
-
-    <ion-list class="list-container">
-      <ion-item *ngFor="let contato of contatosFirebase" class="list-item" lines="none">
-        <ion-label>
-          <h3>{{ contato.nome }}</h3>
-          <p>{{ contato.email }}</p>
-        </ion-label>
       </ion-item>
     </ion-list>
   </div>
